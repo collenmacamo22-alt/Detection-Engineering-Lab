@@ -55,3 +55,35 @@ High
 A single failed login is usually not suspicious.
 
 A sequence of failed logins followed by a successful login represents a behavioral pattern that deserves investigation.
+
+---
+
+# Sigma Rule
+
+```yaml
+title: Multiple Failed Logins Followed by Successful Logon
+
+id: REPLACE-WITH-UUID
+
+status: experimental
+
+description: Detects possible brute force attacks where multiple failed logins are followed by a successful login.
+
+author: Collen Macamo
+
+logsource:
+  product: windows
+  service: security
+
+detection:
+
+  failed_logins:
+    EventID: 4625
+
+  successful_login:
+    EventID: 4624
+
+  condition: failed_logins followed_by successful_login
+
+level: high
+```
