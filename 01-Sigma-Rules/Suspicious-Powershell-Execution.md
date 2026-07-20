@@ -67,7 +67,7 @@ status: experimental
 
 description: Detects PowerShell downloading and executing external files.
 
-author: Collen Macamo
+author: Siphamandla Collen Macamo
 
 logsource:
   product: windows
