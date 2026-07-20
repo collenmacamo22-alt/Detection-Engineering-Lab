@@ -64,7 +64,7 @@ status: experimental
 
 description: Detects multiple failed logins against different user accounts from the same source IP.
 
-author: Collen Macamo
+author: Siphamandla Collen Macamo
 
 logsource:
   product: windows
