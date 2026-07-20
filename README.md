@@ -1,11 +1,41 @@
-# Detection-Engineering-Lab
-Detection Engineering project containing Sigma detection rules, attack scenarios, detection logic, and SOC investigation guidance.
+# Detection Engineering with Sigma Rules
 
-## Project Overview
+## Overview
 
-This project demonstrates my understanding of Detection Engineering concepts through the design of Sigma detection rules based on realistic attack scenarios.
+This project demonstrates my understanding of Detection Engineering by designing and documenting detection logic for common Windows attack techniques using Sigma rules.
 
-The objective of this project is to learn how security analysts and detection engineers translate attacker behavior into actionable detection logic that can be deployed in Security Information and Event Management (SIEM) platforms.
+Rather than focusing only on writing Sigma syntax, this repository emphasizes the analytical thinking behind detection engineering, including attack behavior, event correlation, investigation methodology, severity classification, and MITRE ATT&CK mapping.
+
+---
+
+## Objectives
+
+- Design practical detection logic for common attacks.
+- Learn how attackers abuse legitimate Windows tools.
+- Reduce false positives through event correlation.
+- Practice translating attack scenarios into Sigma detections.
+- Improve SOC investigation and incident response skills.
+
+---
+
+## Repository Structure
+
+```
+01-Sigma-Rules/
+    Brute-Force-Detection.md
+    Password-Spraying.md
+    Suspicious-PowerShell-Execution.md
+    USB-Device-Detection.md
+
+02-Attack-Scenarios/
+    PowerShell-Malware-Attack.md
+
+03-Lessons-Learned/
+    Key-Lessons.md
+
+04-References/
+    References.md
+```
 
 ---
 
@@ -13,47 +43,58 @@ The objective of this project is to learn how security analysts and detection en
 
 - Detection Engineering
 - Sigma Rule Development
-- Windows Security Event Analysis
-- Threat Detection Logic
-- Attack Behavior Analysis
-- Risk-Based Alerting
-- False Positive Reduction
-- Security Operations (SOC) Concepts
+- Windows Event Analysis
+- Windows Security Event IDs
+- Incident Response
+- Threat Hunting
+- MITRE ATT&CK
+- PowerShell Detection
+- Windows Process Analysis
+- Event Correlation
+- Security Operations (SOC)
 
 ---
 
-## Repository Structure
+## MITRE ATT&CK Concepts Covered
 
-```
-Detection-Engineering-Lab/
-
-│
-
-├── Sigma-Rules/
-
-├── Attack-Scenarios/
-
-├── Lessons-Learned/
-
-└── References/
-```
+- Initial Access
+- Execution
+- Command and Scripting Interpreter (PowerShell)
+- Living off the Land (LotL)
+- Ingress Tool Transfer
+- Defense Evasion
 
 ---
 
-## Detection Rules
+## Key Learning Outcomes
 
-The following Sigma detection rules will be developed during this project.
+Through this project I learned that:
 
-- Brute Force Detection
-- Password Spraying Detection
-- PowerShell Malware Detection
-- USB Device Detection
-- New Administrator Account Detection
+- Individual Windows events rarely indicate malicious activity by themselves.
+- Context and event correlation significantly improve detection accuracy.
+- Parent-child process relationships provide valuable investigation context.
+- Legitimate Windows tools can be abused by attackers.
+- Well-designed detection rules reduce analyst workload and improve response times.
 
 ---
 
-## Goal
+## Future Improvements
 
-Rather than simply detecting single events, this project focuses on correlating multiple events and adding context to reduce false positives while improving detection quality.
+Future versions of this repository will include:
 
-The rules developed throughout this project are intended for educational purposes and demonstrate the thought process used by Detection Engineers when designing security detections.
+- Additional Sigma detection rules
+- Sysmon-based detections
+- Wazuh detection rules
+- Microsoft Defender for Endpoint detections
+- Splunk detection queries
+- Elastic SIEM detection rules
+
+---
+
+## Author
+
+**Siphamandla Collen Macamo**
+
+CompTIA Security+ Certified
+
+Cybersecurity | Detection Engineering | SOC Analysis | Threat Detection
