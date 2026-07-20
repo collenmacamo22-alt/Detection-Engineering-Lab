@@ -2,63 +2,59 @@
 
 ## Attack Description
 
-A brute force attack occurs when an attacker repeatedly attempts to guess the password for a single user account by trying many different passwords until one succeeds or the account becomes locked.
-
----
+A brute-force attack is a password attack in which an attacker repeatedly attempts different passwords against the same user account until the correct password is found. These attacks often generate numerous failed authentication events before a successful login.
 
 ## Why This Matters
 
-Brute force attacks are one of the most common techniques used to gain unauthorized access to user accounts.
+Successful brute-force attacks can result in unauthorized access to user accounts, privilege escalation, data theft, or deployment of malware. Early detection reduces attacker dwell time and limits business impact.
 
-If successful, an attacker may gain access to sensitive company resources.
+## Detection Logic
 
----
+Generate a High severity alert if:
 
-## Detection Logic (Plain English)
+- Five or more failed login attempts occur against the same user account.
+- The failed attempts originate from the same source IP address.
+- The failed attempts occur within a five-minute time window.
+- The failed login attempts are followed by a successful login.
 
-Generate a High severity alert when:
+Increase the alert severity to Critical if:
 
-- Multiple failed login attempts occur against the same user account.
-- The attempts occur within a short period of time.
-- The attempts originate from the same source.
-- A successful login immediately follows the failed login attempts.
-
----
+- The successful login originates from an unfamiliar IP address.
+- The login originates from another country.
+- The login occurs outside normal business hours.
+- The targeted account is privileged.
 
 ## Windows Event IDs
 
-- Event ID 4625 – Failed Logon
-- Event ID 4624 – Successful Logon
-
----
+| Event ID | Description |
+|----------|-------------|
+| 4625 | Failed logon |
+| 4624 | Successful logon |
 
 ## Investigation Steps
 
-An analyst should verify:
-
-- Whether the login originated from a known device.
-- Whether the source IP address is expected.
-- Whether the login occurred during business hours.
-- Whether the user recently reset their password.
-- What actions occurred after the successful login.
-
----
+1. Identify the affected account.
+2. Determine the source IP address.
+3. Review authentication history.
+4. Verify whether MFA was enabled.
+5. Determine whether the login was legitimate.
+6. Reset credentials if compromise is confirmed.
+7. Review surrounding security events for lateral movement or persistence.
 
 ## Severity
 
-High
+Default Severity: High
 
----
+Escalate to Critical when additional indicators of compromise are present.
 
 ## Lessons Learned
 
-A single failed login is usually not suspicious.
+- Individual events should not be analyzed in isolation.
+- Context significantly improves detection accuracy.
+- Time windows reduce false positives.
+- Correlating multiple events produces stronger detections than monitoring single events.
 
-A sequence of failed logins followed by a successful login represents a behavioral pattern that deserves investigation.
-
----
-
-# Sigma Rule
+## Sigma Rule
 
 ```yaml
 title: Multiple Failed Logins Followed by Successful Logon
@@ -67,7 +63,7 @@ id: REPLACE-WITH-UUID
 
 status: experimental
 
-description: Detects possible brute force attacks where multiple failed logins are followed by a successful login.
+description: Detects possible brute-force attacks where multiple failed logins are followed by a successful login.
 
 author: Collen Macamo
 
@@ -76,7 +72,6 @@ logsource:
   service: security
 
 detection:
-
   failed_logins:
     EventID: 4625
 
