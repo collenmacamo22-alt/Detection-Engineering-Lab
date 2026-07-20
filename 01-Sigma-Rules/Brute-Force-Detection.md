@@ -65,7 +65,7 @@ status: experimental
 
 description: Detects possible brute-force attacks where multiple failed logins are followed by a successful login.
 
-author: Collen Macamo
+author: Siphamandla Collen Macamo
 
 logsource:
   product: windows
