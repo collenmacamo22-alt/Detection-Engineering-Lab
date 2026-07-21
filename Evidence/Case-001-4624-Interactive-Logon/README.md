@@ -1,0 +1,121 @@
+# Case 001 – Event ID 4624 (Interactive Logon)
+
+## Objective
+
+This case documents a legitimate Windows interactive logon and demonstrates how a SOC analyst evaluates authentication events before determining whether further investigation is required.
+
+---
+
+## Event Summary
+
+| Field | Value |
+|-------|-------|
+| Event ID | 4624 |
+| Event Name | Successful Logon |
+| Account | Quintin |
+| Logon Type | 2 (Interactive) |
+| Date | 21 July 2026 |
+| Time | 10:27 |
+
+---
+
+## Evidence
+
+See:
+
+- Screenshot-01-EventViewer.png
+
+---
+
+## What Happened?
+
+The Windows Security log recorded a successful interactive logon.
+
+Logon Type 2 indicates that a user authenticated directly at the computer using the keyboard.
+
+Unlike Remote Desktop or network authentication, this represents a local user session.
+
+---
+
+## Important Fields
+
+### Event ID
+
+4624
+
+Meaning:
+
+A successful authentication occurred.
+
+---
+
+### Account
+
+siphamandla
+
+Meaning:
+
+The user account that authenticated successfully.
+
+---
+
+### Logon Type
+
+2
+
+Meaning:
+
+Interactive logon.
+
+The user physically signed into the workstation.
+
+---
+
+## Analyst Assessment
+
+At the time of analysis, no suspicious activity was identified.
+
+Reasons:
+
+- Interactive logon is expected.
+- Authentication occurred during normal working hours.
+- No evidence of PowerShell execution immediately afterward.
+- No indication of privilege escalation.
+- No failed logon sequence preceded the event.
+
+---
+
+## Detection Engineering Notes
+
+Event ID 4624 should rarely trigger alerts by itself.
+
+Instead, it becomes valuable when correlated with additional events such as:
+
+- Event ID 4625 (Failed Logon)
+- Event ID 4672 (Special Privileges Assigned)
+- PowerShell execution
+- Remote Desktop logons
+- Authentication outside business hours
+
+---
+
+## Investigation Questions
+
+If this event were suspicious, I would investigate:
+
+- Did the authentication originate from an unfamiliar IP?
+- Did PowerShell execute shortly afterward?
+- Were privileged accounts involved?
+- Were administrative tools launched?
+- Was Windows Defender disabled?
+- Were additional failed logons observed?
+
+---
+
+## Conclusion
+
+This event represents normal Windows user authentication.
+
+No escalation is recommended based solely on this event.
+
+Additional context would be required before classifying it as suspicious.
