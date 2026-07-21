@@ -23,7 +23,7 @@ This case documents a Windows service authentication and explains why not every 
 
 See:
 
-- Screenshot-01-EventViewer.png
+- Screenshot-02-EventViewer.png
 
 ---
 
