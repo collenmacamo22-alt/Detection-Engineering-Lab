@@ -12,7 +12,7 @@ This case documents a legitimate Windows interactive logon and demonstrates how 
 |-------|-------|
 | Event ID | 4624 |
 | Event Name | Successful Logon |
-| Account | Quintin |
+| Account | Siphamandla |
 | Logon Type | 2 (Interactive) |
 | Date | 21 July 2026 |
 | Time | 10:27 |
