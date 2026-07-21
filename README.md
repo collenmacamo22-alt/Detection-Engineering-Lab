@@ -36,6 +36,16 @@ Rather than focusing only on writing Sigma syntax, this repository emphasizes th
 04-References/
     References.md
 ```
+## Investigation Case Files
+
+The following case studies demonstrate how Windows Security Events were analyzed from the perspective of a SOC analyst.
+
+| Case | Description |
+|------|-------------|
+| Case 001 | Event ID 4624 – Interactive User Logon |
+| Case 002 | Event ID 4624 – Service Logon |
+| Case 003 | Event ID 4625 – Failed Logon *(Coming Soon)* |
+| Case 004 | Event ID 4672 – Special Privileges Assigned *(Coming Soon)* |
 
 ---
 
