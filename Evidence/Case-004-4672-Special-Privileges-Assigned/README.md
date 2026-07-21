@@ -22,7 +22,7 @@ This case documents Event ID 4672 and explains how Windows records the assignmen
 
 See:
 
-- Screenshot-01-EventViewer.png
+- Screenshot-04-EventViewer.png
 
 ---
 
